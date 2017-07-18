@@ -1,41 +1,90 @@
 
-/*
+let main = document.getElementById("main")
+let result = document.getElementById("result")
+let num1 = null
+let num2 = null
+let operater = null
+let answer = null
 
-let buttons = document.getElementsByClassName("button")
-let currentValue = ''
 
-.addEventListener("click", function() {
-	button = this.value;
-}
-*/
+main.addEventListener("click", function(e){
 
-//each button has an assigned value
-//when each number button is pressed, that value will display
-//when another number button is pressed, it will be displayed next to the previous number, creating a string.
-// the display can only hold 7 characters
-//when an operational button is 
-/*
-buttons.forEach(function(items) {
-	if (item.value === "C") {
+	var currentValue = e.target.value
+	//let num1 = result.innerHTML //+ currentValue or 
+	//let num2 = result.innerHTML - num1
 
+	if (currentValue === 'C') {
+		result.innerHTML = '' 
+		num1 = ''
+		num2 = ''
+		operater = '' 
+
+
+	} else if (currentValue === '+') {
+		operater = '+'
+		result.innerHTML += currentValue
+
+		//let num1 = Number(result.innerHTML)
+		//let num1 = result.innerHTML //+ currentValue;
+		//result.innerHTML = num1 + currentValue;
+		 //{
+			//if (currentValue === '=') {
+				//let num2 = result.innerHTML - num1; 
+				//result.innerHTML = num1 + num2
+					//result.innerHTML = num1 + num2;
+				//}
+		//}
+			//result.innerHTML += currentValue
+			//let num2 = num1 - currentValue {
+				//if (currentValue === '=') {
+				//result.innerHTML = num1 + num2
+			//}
+		//}
+	
+// once +,-,/,x, is pressed, result.innerHTML will need to be stored into temp variable. 
+// specify operater variable
+// anything right of operater is new number 
+// when = is pressed, call upon temp number to perform operater with new number
+//result.innerHTML
+	
+
+	} else if (currentValue === '/') {
+		operater = '/'
+		result.innerHTML += currentValue
+	} else if (currentValue === 'x') {
+		operater = 'x'
+		result.innerHTML += currentValue
+	} else if (currentValue === '-') {
+		operater = '-'
+		result.innerHTML += currentValue
+	} else if (currentValue === '=') {
+		operater = '='
+		if (operater === '+'){
+			let answer = Number (num1) + Number (num2)
+			result.innerHTML = answer
+
+		} else if (operater === '/') {
+			let answer = Number (num1) / Number (num2)
+			result.innerHTML = answer
+
+		} else if (operater === 'x') {
+			let answer = Number (num1) * Number(num2)
+			result.innerHTML = answer
+
+		} else if (operater === '-') {
+			let answer = Number (num1) - Number(num2)
+			result.innerHTML = answer
+		}
+		//let equals = num1 + num2
+		//result.innerHTML = equals
+		//console.log (num1)
+	} else { // currentValue = number
+		result.innerHTML += currentValue 
+		if (operater) { // this means if there is an operater (which is set in statements above, then anything following will be num2)
+			num2 = currentValue
+		} else { //if there isnt an operater, then all the numbers inputed will be num1
+			num1 = currentValue
+		}
 	}
-	else if (item.value === "=") {
-
-	}
-	else {
-		return item.value
-}
-*/
-//document.getElementById("button1").addEventListener("click", buttonPush1);
-
-document.getElementsByClassName("button").addEventListener("click", buttonPush1)
-
-function buttonPush1() {
-	document.getElementById("result").innerHTML += 1
-}
-
-//add event handler to button1 click
-// use document.getElementById on #button1 and add eventListener with action 'click' and function buttonPush1
-
-
+})
 
