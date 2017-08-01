@@ -58,7 +58,6 @@ main.addEventListener("click", function(e){
 		operater = '-'
 		result.innerHTML += currentValue
 	} else if (currentValue === '=') {
-		operater = '='
 		if (operater === '+'){
 			let answer = Number (num1) + Number (num2)
 			result.innerHTML = answer
@@ -80,10 +79,11 @@ main.addEventListener("click", function(e){
 		//console.log (num1)
 	} else { // currentValue = number
 		result.innerHTML += currentValue 
+		console.log(currentValue)
 		if (operater) { // this means if there is an operater (which is set in statements above, then anything following will be num2)
-			num2 = currentValue
+			num2 += currentValue
 		} else { //if there isnt an operater, then all the numbers inputed will be num1
-			num1 = currentValue
+			num1 += currentValue
 		}
 	}
 })
